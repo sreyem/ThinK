@@ -8,23 +8,27 @@ Imports ThinK.toolkit
 Public Class toolkit
 
 
+#Region "     Hypres"
+
+#End Region
+
     <TypeConverter(GetType(enumConverter(Of eHypresClass)))>
     Public Enum eHypresClass
-
-        <Description("Organic")>
-        organic
-
-        <Description("Fine")>
-        fine
 
         <Description("Coarse")>
         coarse
 
-        <Description("Medium - Fine")>
-        mediumFine
+        <Description("Fine")>
+        fine
 
         <Description("Medium")>
         medium
+
+        <Description("Medium - Fine")>
+        mediumFine
+
+        <Description("Organic")>
+        organic
 
         <Description(enumConverter(Of Type).not_defined)>
         not_def = -1
@@ -121,8 +125,6 @@ Public Class toolkit
 
     Public Shared Function getUSDAClass(xSand As Single, yClay As Single) As eUSDAclass
 
-
-        'Const nTexClass = 12
         Dim SandTexC(eUSDAclass.loamySand, 10) As Single
         Dim ClayTexC(eUSDAclass.loamySand, 10) As Single
         Dim Sand(10) As Single
@@ -130,19 +132,6 @@ Public Class toolkit
         Dim nPoly(eUSDAclass.loamySand) As Integer
         Dim texStr(eUSDAclass.loamySand) As String
 
-
-        texStr(1) = "Clay"
-        texStr(2) = "Sandy clay"
-        texStr(3) = "Silty clay"
-        texStr(4) = "Loam"
-        texStr(5) = "Clay loam"
-        texStr(6) = "Silty clay loam"
-        texStr(7) = "Silt loam"
-        texStr(8) = "Silt"
-        texStr(9) = "Sandy clay loam"
-        texStr(10) = "Sandy loam"
-        texStr(11) = "Sand"
-        texStr(12) = "Loamy sand"
 
 #Region "    Definitions"
 
@@ -165,6 +154,7 @@ Public Class toolkit
         SandTexC(1, 4) = 0.2
         SandTexC(1, 5) = 0
         SandTexC(1, 6) = 0
+
         ClayTexC(1, 1) = 1
         ClayTexC(1, 2) = 0.55
         ClayTexC(1, 3) = 0.4
@@ -176,6 +166,7 @@ Public Class toolkit
         SandTexC(2, 2) = 0.65
         SandTexC(2, 3) = 0.45
         SandTexC(2, 4) = 0.45
+
         ClayTexC(2, 1) = 0.55
         ClayTexC(2, 2) = 0.35
         ClayTexC(2, 3) = 0.35
@@ -185,6 +176,7 @@ Public Class toolkit
         SandTexC(3, 2) = 0.2
         SandTexC(3, 3) = 0
         SandTexC(3, 4) = 0
+
         ClayTexC(3, 1) = 0.6
         ClayTexC(3, 2) = 0.4
         ClayTexC(3, 3) = 0.4
@@ -196,6 +188,7 @@ Public Class toolkit
         SandTexC(4, 4) = 0.43
         SandTexC(4, 5) = 0.23
         SandTexC(4, 6) = 0.45
+
         ClayTexC(4, 1) = 0.27
         ClayTexC(4, 2) = 0.2
         ClayTexC(4, 3) = 0.07
@@ -208,6 +201,7 @@ Public Class toolkit
         SandTexC(5, 3) = 0.2
         SandTexC(5, 4) = 0.2
         SandTexC(5, 5) = 0.45
+
         ClayTexC(5, 1) = 0.4
         ClayTexC(5, 2) = 0.27
         ClayTexC(5, 3) = 0.27
@@ -219,6 +213,7 @@ Public Class toolkit
         SandTexC(6, 3) = 0
         SandTexC(6, 4) = 0
         SandTexC(6, 5) = 0.2
+
         ClayTexC(6, 1) = 0.4
         ClayTexC(6, 2) = 0.27
         ClayTexC(6, 3) = 0.27
@@ -232,6 +227,7 @@ Public Class toolkit
         SandTexC(7, 5) = 0
         SandTexC(7, 6) = 0
         SandTexC(7, 7) = 0.23
+
         ClayTexC(7, 1) = 0.27
         ClayTexC(7, 2) = 0
         ClayTexC(7, 3) = 0
@@ -245,6 +241,7 @@ Public Class toolkit
         SandTexC(8, 3) = 0
         SandTexC(8, 4) = 0
         SandTexC(8, 5) = 0.08
+
         ClayTexC(8, 1) = 0.12
         ClayTexC(8, 2) = 0
         ClayTexC(8, 3) = 0
@@ -257,6 +254,7 @@ Public Class toolkit
         SandTexC(9, 4) = 0.45
         SandTexC(9, 5) = 0.45
         SandTexC(9, 6) = 0.65
+
         ClayTexC(9, 1) = 0.35
         ClayTexC(9, 2) = 0.2
         ClayTexC(9, 3) = 0.2
@@ -272,6 +270,7 @@ Public Class toolkit
         SandTexC(10, 6) = 0.52
         SandTexC(10, 7) = 0.52
         SandTexC(10, 8) = 0.8
+
         ClayTexC(10, 1) = 0.2
         ClayTexC(10, 2) = 0.15
         ClayTexC(10, 3) = 0
@@ -285,6 +284,7 @@ Public Class toolkit
         SandTexC(11, 2) = 1
         SandTexC(11, 3) = 0.87
         SandTexC(11, 4) = 0.9
+
         ClayTexC(11, 1) = 0.1
         ClayTexC(11, 2) = 0
         ClayTexC(11, 3) = 0
@@ -295,6 +295,7 @@ Public Class toolkit
         SandTexC(12, 3) = 0.87
         SandTexC(12, 4) = 0.7
         SandTexC(12, 5) = 0.85
+
         ClayTexC(12, 1) = 0.15
         ClayTexC(12, 2) = 0.1
         ClayTexC(12, 3) = 0
@@ -308,7 +309,7 @@ Public Class toolkit
                 Sand(j) = SandTexC(USDAClass, j)
                 Clay(j) = ClayTexC(USDAClass, j)
             Next j
-            If inRegion(Sand, Clay, nPoly(USDAClass), xSand / 100, yClay / 100) = 1 Then
+            If inRegion(Sand, Clay, nPoly(USDAClass), xSand, yClay) = 1 Then
                 Return USDAClass
             End If
         Next
@@ -318,6 +319,9 @@ Public Class toolkit
     End Function
 
     Private Shared Function inRegion(xPoly() As Single, yPoly() As Single, nPoly As Integer, xp As Single, yp As Single) As Integer
+
+
+#Region "    Definitions"
 
         Const eps As Single = 0.000001
 
@@ -344,6 +348,12 @@ Public Class toolkit
         ReDim lower(nPoly)
 
         Dim out As Integer
+
+#End Region
+
+        xp /= 100
+        yp /= 100
+
 
         xMax = xPoly(1)
         xMin = xPoly(1)
@@ -396,6 +406,7 @@ Public Class toolkit
                     End If
                 End If
             End If
+
         Next i
 
         If (k > 2) Then
@@ -429,7 +440,7 @@ Public Class toolkit
 
     End Function
 
-    Public Enum eSoilCompartments
+    Public Enum eSoilTexture
         sand
         silt
         clay
@@ -438,28 +449,73 @@ Public Class toolkit
 
 End Class
 
+
+
+
 <TypeConverter(GetType(propGridConverter))>
 <Serializable>
-Public Class testSoil
+Public Class soilTexture
+
+    Public Sub New()
+        init()
+    End Sub
+
+    Private Sub init()
+
+        _sand = 10
+        _clay = 60
+        _silt = 30
+
+        toCalculate = _toCalculate
+
+    End Sub
+
+    Private Sub soilTexture_update() Handles Me.update
+
+        hypres =
+            getHypresClass(
+            sand:=sand,
+            silt:=silt,
+            clay:=clay)
+
+        USDA =
+            getUSDAClass(
+            xSand:=sand,
+            yClay:=clay)
+
+    End Sub
+
+    Private _hypres As eHypresClass
+    Private _USDA As eUSDAclass
 
     Private _sand As Integer
     Private _silt As Integer
     Private _clay As Integer
 
-    Private _hypres As eHypresClass
-    Private _USDA As eUSDAclass
+    Private _toCalculate As eSoilTexture = eSoilTexture.clay
 
-    Public Sub New()
-        _sand = 10
-        clay = 60
-    End Sub
+    Private _om As Double = Double.NaN
+    Private _oc As Double = Double.NaN
 
+    Public Const catTexture As String = "01  Texture"
 
+#Region "    Texture"
 
-    Public Property toCalculate As eSoilCompartments = eSoilCompartments.silt
-
+    ''' <summary>
+    ''' Sand   0.05  - 2.00 mm
+    ''' Coarsest mineral particles
+    ''' feel gritty when rubbed between your fingers
+    ''' </summary>
+    ''' <returns></returns>
+    <DisplayName(
+        "Sand")>
+    <Description(
+    "0.05  - 2.00 mm, coarsest mineral particles" & vbCrLf &
+    "feel gritty when rubbed between your fingers")>
+    <Category(catTexture)>
     <Editor(GetType(nudValueEditorInteger), GetType(UITypeEditor))>
     <RefreshProperties(RefreshProperties.All)>
+    <[ReadOnly](False)>
     Public Property sand As Integer
         Get
             Return _sand
@@ -468,40 +524,43 @@ Public Class testSoil
 
             Select Case toCalculate
 
-                Case eSoilCompartments.sand
-                    Exit Property
-                Case eSoilCompartments.clay
+                Case eSoilTexture.clay
 
-                    If Value + _silt <= 100 Then
-                        _clay = 100 - Value - silt
-                        _sand = Value
+                    If Value + _silt > 100 Then _silt = 100 - Value
 
-                    End If
+                    _clay = 100 - (Value + _silt)
+                    _sand = Value
 
-                Case eSoilCompartments.silt
-                    If Value + _silt <= 100 Then
-                        _silt = 100 - Value - clay
-                        _sand = Value
-                    End If
+                Case eSoilTexture.silt
+
+                    If Value + _clay > 100 Then _clay = 100 - Value
+
+                    _silt = 100 - (Value + _clay)
+                    _sand = Value
+
+                Case eSoilTexture.sand
 
             End Select
 
-            hypres =
-                getHypresClass(
-                sand:=_sand,
-                silt:=silt,
-                clay:=clay)
-
-            USDA =
-                getUSDAClass(
-                xSand:=_sand,
-                yClay:=_clay)
+            RaiseEvent update()
 
         End Set
     End Property
 
+    ''' <summary>
+    ''' Silt  0.002 - 0.05 mm
+    ''' feel similar to flour when dry
+    ''' </summary>
+    ''' <returns></returns>
+    <DisplayName(
+        "Silt")>
+    <Description(
+    "0.002 - 0.05 mm" & vbCrLf &
+    "Feel similar to flour when dry")>
+    <Category(catTexture)>
     <Editor(GetType(nudValueEditorInteger), GetType(UITypeEditor))>
     <RefreshProperties(RefreshProperties.All)>
+    <[ReadOnly](False)>
     Public Property silt As Integer
         Get
             Return _silt
@@ -510,42 +569,45 @@ Public Class testSoil
 
             Select Case toCalculate
 
-                Case eSoilCompartments.sand
+                Case eSoilTexture.sand
 
-                    If Value + _clay <= 100 Then
-                        _sand = 100 - Value - clay
-                        _silt = Value
+                    If Value + _clay > 100 Then _clay = 100 - Value
 
-                    End If
-                Case eSoilCompartments.clay
+                    _sand = 100 - (Value + _clay)
+                    _silt = Value
 
-                    If Value + _silt <= 100 Then
-                        clay = 100 - Value - sand
-                        _silt = Value
+                Case eSoilTexture.clay
 
-                    End If
+                    If Value + _sand > 100 Then _sand = 100 - Value
 
-                Case eSoilCompartments.silt
-                    Exit Property
+                    _clay = 100 - (Value + _sand)
+                    _silt = Value
+
+                Case eSoilTexture.silt
+
 
             End Select
 
-            hypres =
-                getHypresClass(
-                sand:=_sand,
-                silt:=silt,
-                clay:=clay)
-
-            USDA =
-               getUSDAClass(
-               xSand:=_sand,
-               yClay:=_clay)
+            RaiseEvent update()
 
         End Set
     End Property
 
+    ''' <summary>
+    ''' Clay  less than 0.002 mm
+    ''' feel sticky in your fingers when wet and clump to the point
+    ''' that you can't see an individual particle without a microscope
+    ''' </summary>
+    ''' <returns></returns>
+    <DisplayName(
+        "Clay")>
+    <Description(
+    "<0.002 mm, feel sticky in your fingers when wet and clump to the point " & vbCrLf &
+    "that you can't see an individual particle without a microscope")>
+    <Category(catTexture)>
     <Editor(GetType(nudValueEditorInteger), GetType(UITypeEditor))>
     <RefreshProperties(RefreshProperties.All)>
+    <[ReadOnly](True)>
     Public Property clay As Integer
         Get
             Return _clay
@@ -554,41 +616,124 @@ Public Class testSoil
 
             Select Case toCalculate
 
-                Case eSoilCompartments.sand
+                Case eSoilTexture.sand
 
-                    If Value + _clay <= 100 Then
-                        _sand = 100 - Value - silt
-                        _clay = Value
+                    If Value + _silt > 100 Then _silt = 100 - Value
 
-                    End If
-                Case eSoilCompartments.clay
-                    Exit Property
+                    _sand = 100 - (Value + _silt)
+                    _clay = Value
 
+                Case eSoilTexture.silt
 
-                Case eSoilCompartments.silt
-                    If Value + _sand <= 100 Then
-                        _silt = 100 - Value - sand
-                        _clay = Value
+                    If Value + _sand > 100 Then _sand = 100 - Value
 
-                    End If
+                    _silt = 100 - (Value + _sand)
+                    _clay = Value
+
+                Case eSoilTexture.clay
 
             End Select
 
-            hypres =
-                getHypresClass(
-                sand:=sand,
-                silt:=silt,
-                clay:=clay)
-
-            USDA =
-               getUSDAClass(
-               xSand:=_sand,
-               yClay:=_clay)
+            RaiseEvent update()
 
         End Set
     End Property
 
+    ''' <summary>
+    ''' 'Unknown' part to the texture
+    ''' to be calculated by 100 - (texture a + b)
+    ''' </summary>
+    ''' <returns></returns>
+    <Description(
+    "'Unknown' part to the texture" & vbCrLf &
+    "to be calculated by 100 - (texture a + b)")>
+    <DisplayName(
+    " ... to calculate")>
+    <Category(catTexture)>
+    Public Property toCalculate As eSoilTexture
+        Get
+            Return _toCalculate
+        End Get
+        Set
+
+            _toCalculate = Value
+
+            Select Case _toCalculate
+
+                Case eSoilTexture.clay
+
+                    setReadOnlyProperty(propertyName:="sand", [readOnly]:=False)
+                    setReadOnlyProperty(propertyName:="silt", [readOnly]:=False)
+                    setReadOnlyProperty(propertyName:="clay", [readOnly]:=True)
+
+                Case eSoilTexture.silt
+
+
+                    setReadOnlyProperty(propertyName:="sand", [readOnly]:=False)
+                    setReadOnlyProperty(propertyName:="silt", [readOnly]:=True)
+                    setReadOnlyProperty(propertyName:="clay", [readOnly]:=False)
+
+                Case eSoilTexture.sand
+
+
+                    setReadOnlyProperty(propertyName:="sand", [readOnly]:=True)
+                    setReadOnlyProperty(propertyName:="silt", [readOnly]:=False)
+                    setReadOnlyProperty(propertyName:="clay", [readOnly]:=False)
+
+            End Select
+
+            RaiseEvent update()
+
+        End Set
+    End Property
+
+
+    ''' <summary>
+    ''' Switch for the Attribute 'read only'
+    ''' </summary>
+    ''' <param name="propertyName"></param>
+    ''' Name of the property to change
+    ''' <param name="readOnly"></param>
+    ''' read only or not , true or false
+    ''' <remarks></remarks>
+    Private Sub setReadOnlyProperty(ByVal propertyName As String,
+                                    ByVal [readOnly] As Boolean)
+
+        Try
+
+            Dim descriptor As PropertyDescriptor =
+                           TypeDescriptor.GetProperties([GetType]())(propertyName)
+            Dim attribute As ReadOnlyAttribute =
+                DirectCast(descriptor.Attributes(GetType(ReadOnlyAttribute)), ReadOnlyAttribute)
+
+
+
+            Dim fieldToChange As Reflection.FieldInfo =
+                        attribute.[GetType]().GetField("isReadOnly",
+                                                    System.Reflection.BindingFlags.NonPublic Or
+                                                    System.Reflection.BindingFlags.Instance)
+
+            fieldToChange.SetValue(attribute, [readOnly])
+
+        Catch ex As Exception
+            Console.WriteLine(
+                "Error setting '[readOnly]' property for " &
+                propertyName & " to " &
+                [readOnly].ToString & vbCrLf &
+                ex.Message)
+        End Try
+
+    End Sub
+
+#End Region
+
+    Public Const catClassifications As String = "02 Classifications"
+
+#Region "    Classifications"
+
     <RefreshProperties(RefreshProperties.All)>
+    <[ReadOnly](True)>
+    <Category(catClassifications)>
     Public Property hypres As eHypresClass
         Get
             Return _hypres
@@ -598,6 +743,9 @@ Public Class testSoil
         End Set
     End Property
 
+    <RefreshProperties(RefreshProperties.All)>
+    <[ReadOnly](True)>
+    <Category(catClassifications)>
     Public Property USDA As eUSDAclass
         Get
             Return _USDA
@@ -606,4 +754,53 @@ Public Class testSoil
             _USDA = Value
         End Set
     End Property
+
+#End Region
+
+
+    Public Const catOmOc As String = "03 Organic matter/carbon"
+
+#Region "    Organic matter/carbon"
+
+    Private Const factorOmOc As Double = 1.724
+    Private Const digits As Integer = 2
+
+    <Category(catOmOc)>
+    <RefreshProperties(RefreshProperties.All)>
+    <TypeConverter(GetType(dblConv))>
+    Public Property om As Double
+        Get
+            Return _om
+        End Get
+        Set
+
+            _om = Value
+            _oc = Math.Round(_om / factorOmOc, digits:=digits)
+
+        End Set
+    End Property
+
+
+    <Category(catOmOc)>
+    <RefreshProperties(RefreshProperties.All)>
+    <TypeConverter(GetType(dblConv))>
+    Public Property oc As Double
+        Get
+            Return _oc
+        End Get
+        Set
+
+            _oc = Value
+            _om = Math.Round(_oc * factorOmOc, digits:=digits)
+
+        End Set
+    End Property
+
+#End Region
+
+
+    Public Event update()
+
+
 End Class
+

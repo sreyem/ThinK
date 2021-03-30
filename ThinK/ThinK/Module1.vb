@@ -27,6 +27,6 @@ Module Module1
 
     End Sub
 
-    Public Property test As New testSoil
+    Public Property test As New soilTexture
 
 End Module
